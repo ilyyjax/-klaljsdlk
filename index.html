@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sex — Live Humanity Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Sex</h1>
+      <span class="subtitle">Live Humanity Dashboard</span>
+    </div>
+
+    <nav class="tabs" role="tablist" aria-label="Dashboard tabs">
+      <button class="tab active" data-tab="babies" role="tab" aria-selected="true">Babies Born</button>
+      <button class="tab" data-tab="condoms" role="tab" aria-selected="false">Condom Prices</button>
+      <button class="tab" data-tab="women" role="tab" aria-selected="false">Number of Women</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- Babies Born -->
+    <section id="babies" class="panel active" role="tabpanel">
+      <div class="panel-top">
+        <div class="metric">
+          <div class="metric-label">Babies born (real-time)</div>
+          <div id="babies-counter" class="metric-value">0</div>
+          <div class="metric-sub">Estimated births per second: <span id="babies-rate">—</span></div>
+        </div>
+
+        <div class="controls">
+          <button id="babies-pause" class="btn">Pause</button>
+          <button id="babies-reset" class="btn ghost">Reset</button>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="babies-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Condom Prices -->
+    <section id="condoms" class="panel" role="tabpanel" aria-hidden="true">
+      <div class="panel-top">
+        <div class="metric">
+          <div class="metric-label">Condom price (avg. simulated)</div>
+          <div id="condom-counter" class="metric-value">$0.00</div>
+          <div class="metric-sub">Live price (per unit, simulated)</div>
+        </div>
+
+        <div class="controls">
+          <button id="condom-pause" class="btn">Pause</button>
+          <button id="condom-reset" class="btn ghost">Reset</button>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="condom-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Number of Women -->
+    <section id="women" class="panel" role="tabpanel" aria-hidden="true">
+      <div class="panel-top">
+        <div class="metric">
+          <div class="metric-label">Estimated number of women (world)</div>
+          <div id="women-counter" class="metric-value">0</div>
+          <div class="metric-sub">Shows gradual growth in real-time</div>
+        </div>
+
+        <div class="controls">
+          <button id="women-pause" class="btn">Pause</button>
+          <button id="women-reset" class="btn ghost">Reset</button>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="women-chart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Data is simulated for demonstration. Charts update every second.</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
